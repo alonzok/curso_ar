@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <script src="./lib/aframe-master.min.js"></script>
+  <!-- we import arjs version without NFT but with marker + location based support -->
+  <script src="./lib/aframe-ar.js"></script>
+  <body style="margin: 0px; overflow: hidden;">
+    <a-scene embedded arjs>
+        <a-assets>
+            <img id="my-image" src="./image/Meow-Sound-Effect.mp3">
+          </a-assets>
+      <a-marker preset="hiro">
+            <a-sound src="#my-image" autoplay="true" position="0 2 5"></a-sound>
+      </a-marker>
+      <a-entity camera></a-entity>
+    </a-scene>
+  </body>
+</html>
