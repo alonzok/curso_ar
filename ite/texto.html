@@ -40,9 +40,11 @@
         arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: false;">
         <a-nft type="nft" url="https://alonzok.github.io/curso_ar/ite/collage/collage" smooth="true" smoothCount="10"
             smoothTolerance=".01" smoothThreshold="5">
-            <a-text 
-                value="In the banninging" 
-            ></a-text>
+            <a-entity
+            rotation="90 0 0"
+            value="In the banninging"
+            geometry="primitive:plane"
+        ></a-entity>
         </a-nft>
         <a-entity camera></a-entity>
     </a-scene>
