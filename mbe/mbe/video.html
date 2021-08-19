@@ -5,11 +5,12 @@
   <script src="./lib/aframe-ar.js"></script>
   <body style="margin: 0px; overflow: hidden;">
     <a-scene embedded arjs>
+        <a-assets>
+            <a-asset-item id="video" src="./image/gato.mp4" autoplay loop="true">
+                </a-asset-item>
+          </a-assets>
       <a-marker preset="hiro">
-        <a-text 
-                value="In the banninging"
-                geometry="primitive:plane"
-            ></a-text>
+            <a-video src="#video" width="16" height="9" position="0 2 5"></a-video>
       </a-marker>
       <a-entity camera></a-entity>
     </a-scene>
