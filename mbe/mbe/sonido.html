@@ -6,10 +6,13 @@
   <body style="margin: 0px; overflow: hidden;">
     <a-scene embedded arjs>
         <a-assets>
-            <img id="my-image" src="./image/Meow-Sound-Effect.mp3">
+            <a-asset-item id="sound" src="./image/Meow-Sound-Effect.mp3"
+                reload="true" response-type="arraybuffer" loop
+                crossorigin webkit-playsinline playsinline>
+                </a-asset-item>
           </a-assets>
       <a-marker preset="hiro">
-            <a-sound src="#my-image" autoplay="true" position="0 2 5"></a-sound>
+            <a-sound src="#sound" autoplay="true" position="0 2 5"></a-sound>
       </a-marker>
       <a-entity camera></a-entity>
     </a-scene>
