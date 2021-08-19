@@ -3,6 +3,26 @@
   <script src="./lib/aframe-master.min.js"></script>
   <!-- we import arjs version without NFT but with marker + location based support -->
   <script src="./lib/aframe-ar.js"></script>
+  <script>
+    window.onload = function() {
+        AFRAME.registerComponent('shoundhandler', {
+            init: function () {
+                var marker = this.el;
+
+                this.video = document.querySelector("#video");
+
+                marker.addEventListener('markerFound', function () {
+                    this.video.play();
+                }.bind(this));
+    
+        marker.addEventListener('markerLost', function() {
+            this.video.pause();
+            this.video.currentTime = 0;
+        }.bind(this));
+            }
+        });
+    };
+</script>
   <body style="margin: 0px; overflow: hidden;">
     <a-scene embedded arjs>
         <a-assets>
@@ -10,7 +30,7 @@
                 </a-asset-item>
           </a-assets>
       <a-marker preset="hiro">
-            <a-video src="#video" width="16" height="9" position="0 2 5"></a-video>
+            <a-video src="#video" width="16" height="9" position="0 0 0"></a-video>
       </a-marker>
       <a-entity camera></a-entity>
     </a-scene>
