@@ -6,22 +6,11 @@
   <body style="margin: 0px; overflow: hidden;">
     <a-scene embedded arjs>
       <a-marker preset="hiro">
-        <a-entity
-          gltf-model="./trophy/scene.gltf"
-          scale="1 1 1"
-          position="0 0 -5"
-          rotation="-90 0 0"          
-        ></a-entity>
+        <a-text 
+                value="In the banninging" 
+            ></a-text>
       </a-marker>
       <a-entity camera></a-entity>
     </a-scene>
-    <a-scene embedded arjs>
-        <a-marker preset="hiro">
-            <a-text 
-                value="In the banninging" 
-            ></a-text>
-        </a-marker>
-        <a-entity camera></a-entity>
-      </a-scene>
   </body>
 </html>
