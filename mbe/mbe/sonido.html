@@ -3,6 +3,26 @@
   <script src="./lib/aframe-master.min.js"></script>
   <!-- we import arjs version without NFT but with marker + location based support -->
   <script src="./lib/aframe-ar.js"></script>
+  <script>
+    window.onload = function() {
+        AFRAME.registerComponent('shoundhandler', {
+            init: function () {
+                var marker = this.el;
+
+                this.sound = document.querySelector("#sound");
+
+                marker.addEventListener('markerFound', function () {
+                    this.sound.play();
+                }.bind(this));
+    
+        marker.addEventListener('markerLost', function() {
+            this.sound.pause();
+            this.sound.currentTime = 0;
+        }.bind(this));
+            }
+        });
+    };
+</script>
   <body style="margin: 0px; overflow: hidden;">
     <a-scene embedded arjs>
         <a-assets>
