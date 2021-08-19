@@ -1,0 +1,52 @@
+<script src="./lib/aframe-master.min.js"></script>
+<!-- we import arjs version without NFT but with marker + location based support -->
+<script src="./lib/aframe-ar.js"></script>
+<script>
+    window.onload = function() {
+        AFRAME.registerComponent('videohandler', {
+            init: function () {
+                var marker = this.el;
+
+                this.sound = document.querySelector("#sound");
+
+                marker.addEventListener('markerFound', function () {
+                    this.sound.play();
+                }.bind(this));
+
+		marker.addEventListener('markerLost', function() {
+			this.sound.pause();
+			this.sound.currentTime = 0;
+		}.bind(this));
+            }
+        });
+    };
+</script>
+
+<body style='margin : 0px; overflow: hidden;'>
+    <div class="arjs-loader">
+        <div>Loading, please wait...</div>
+    </div>
+    <a-scene
+    vr-mode-ui="enabled: false"
+    embedded
+    arjs="sourceType: webcam; debugUIEnabled: false;"
+  >
+  <a-assets>
+    <a-asset-item id="sound" src="./assets/catnoise.mp3"
+        reload="true" response-type="arraybuffer" loop>
+        </a-asset-item>
+  </a-assets>
+
+            <a-sound
+                src="#sound"
+                position='50 150 -100'
+                rotation='90 0 180'
+                width='300'
+                height='175'
+                gps-entity-place="latitude: 32.6311499; longitude: -115.4445673;"
+                look-at="[gps-camera]"
+                >
+            </a-sound>
+		<a-camera gps-camera rotation-reader> </a-camera>
+	</a-scene>
+</body>
